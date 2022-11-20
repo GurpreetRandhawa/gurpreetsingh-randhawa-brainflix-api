@@ -24,6 +24,9 @@ router.get("/", (_req, res) => {
   }
 });
 
+/**
+ * Get specific video by ID
+ */
 router.get("/:id", (req, res) => {
   const found = videos.some((video) => video.id === req.params.id);
   if (found) {
@@ -32,5 +35,9 @@ router.get("/:id", (req, res) => {
     res.status(400).json({ error: `Video with ID:${req.params.id} not found` });
   }
 });
+
+// router.post("/", (req, res)=> {
+//   const
+// })
 
 module.exports = router;

@@ -1,10 +1,12 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const path = require("node:path");
 
 const app = express();
 const videoRouter = require("./routes/videos");
 
+app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/videos", videoRouter);
